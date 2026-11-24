@@ -1,19 +1,320 @@
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="./kanoa-logo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Kanoa Sushi Restaurant em Maringá: sushis, sashimis, temakis, hots e pratos quentes. Almoço e jantar, pedidos pelo WhatsApp (44) 98822-7997." />
-    <meta property="og:title" content="Kanoa Sushi Restaurant · Maringá" />
-    <meta property="og:description" content="Sushis, temakis e pratos quentes. Av. João Paulino Vieira Filho, 890 — Maringá-PR." />
-    <meta property="og:image" content="./kanoa-logo.png" />
-    <meta name="theme-color" content="#0a0a0a" />
-    <title>Kanoa Sushi Restaurant · Maringá</title>
-    <script type="module" crossorigin src="./index-CiOKpVdD.js"></script>
-    <link rel="stylesheet" crossorigin href="./index-BEQbCyif.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kanoa Sushi · Sushi & Temakeria em Maringá</title>
+  <meta name="description" content="Kanoa Sushi & Temakeria em Maringá-PR: buffet frio e quente no almoço e no jantar, brinquedoteca Kanoa Kids e tour virtual 360°. Av. João Paulino Vieira Filho, 890.">
+  <meta name="theme-color" content="#D9261C">
+  <link rel="icon" href="./kanoa-logo.png" type="image/png">
+  <meta property="og:title" content="Kanoa Sushi · Maringá">
+  <meta property="og:image" content="kanoa-logo.png">
+  <!-- primeira pintura: nunca a página crua. O tema (?tema=) e a cor da abertura ligam aqui, antes de qualquer arquivo;
+       a folha do site vem em <link> (segura a pintura até chegar), nunca pelo JS. Ao trocar a paleta em tokens.css,
+       troque aqui a cor de fundo (a --cor-fria do tema, que é a cor da abertura). -->
+  <script>
+    (function () {
+      var d = document.documentElement;
+      // [cor da abertura (a --cor-fria), cor do navegador no celular (a --cor-hero)]
+      var temas = { shari: ['#5a2e1a', '#d9261c'], matcha: ['#6b2d1f', '#3d7a3a'], rosa: ['#34307a', '#d93f7a'] };
+      var t = new URLSearchParams(location.search).get('tema');
+      if (!temas[t]) t = 'shari';
+      if (t !== 'shari') d.dataset.tema = t;
+      d.style.backgroundColor = temas[t][0];
+      document.querySelector('meta[name="theme-color"]').content = temas[t][1];
+      d.classList.add('js');
+    })();
+  </script>
+  <style>body{margin:0}html:not(.assentou) .botao,html:not(.assentou) .nav a{transition:none!important}.js .loader [data-passo]{visibility:hidden}.loader__passo span:not(:first-child){display:none}</style>
+  <link rel="preload" as="image" href="./img-barca.webp" fetchpriority="high">
+  <script type="module" crossorigin src="./index-CYWOQLMu.js"></script>
+  <link rel="stylesheet" crossorigin href="./index-CUvt0tBG.css">
+</head>
+<body>
+  <!-- Abertura (src/motion/loader.js): cada parte do desenho com data-passo entra na ordem, do jeito de data-jeito
+     (sobe, estala, cai ou desce), e a legenda troca para o <span> de mesmo número. Para outra cozinha, troque o SVG
+     (ou ponha o logo) e as legendas; o número de passos é livre. -->
+<div class="loader" aria-hidden="true">
+  <div class="loader__box">
+    <svg class="nigiri" viewBox="0 0 240 170" role="img">
+      <ellipse class="nigiri__sombra" data-sombra cx="120" cy="150" rx="92" ry="10" />
+      <g class="nigiri__arroz" data-passo="1" data-jeito="sobe">
+        <path d="M34 112c0-30 34-50 86-50s86 20 86 50c0 20-28 32-86 32s-86-12-86-32z" />
+        <g class="nigiri__graos">
+          <ellipse cx="62" cy="108" rx="7" ry="4" transform="rotate(-20 62 108)" />
+          <ellipse cx="88" cy="124" rx="7" ry="4" transform="rotate(15 88 124)" />
+          <ellipse cx="120" cy="132" rx="7" ry="4" transform="rotate(-8 120 132)" />
+          <ellipse cx="152" cy="124" rx="7" ry="4" transform="rotate(22 152 124)" />
+          <ellipse cx="178" cy="110" rx="7" ry="4" transform="rotate(-25 178 110)" />
+          <ellipse cx="106" cy="114" rx="6" ry="3.5" transform="rotate(30 106 114)" />
+          <ellipse cx="138" cy="112" rx="6" ry="3.5" transform="rotate(-30 138 112)" />
+        </g>
+      </g>
+      <ellipse class="nigiri__wasabi" data-passo="2" data-jeito="estala" cx="120" cy="70" rx="20" ry="8" />
+      <g class="nigiri__peixe" data-passo="3" data-jeito="cai">
+        <clipPath id="peixe-forma"><path d="M22 92c10-38 58-60 112-56 50 4 84 26 86 50 1 10-8 14-20 12-40-6-96-2-148 8-20 4-34 0-30-14z" /></clipPath>
+        <path class="nigiri__salmao" d="M22 92c10-38 58-60 112-56 50 4 84 26 86 50 1 10-8 14-20 12-40-6-96-2-148 8-20 4-34 0-30-14z" />
+        <g clip-path="url(#peixe-forma)" class="nigiri__gordura">
+          <path d="M40 120 90 20" /><path d="M78 120 128 20" /><path d="M116 120 166 20" /><path d="M154 120 204 20" /><path d="M192 120 242 20" />
+        </g>
+        <path class="nigiri__contorno" d="M22 92c10-38 58-60 112-56 50 4 84 26 86 50 1 10-8 14-20 12-40-6-96-2-148 8-20 4-34 0-30-14z" />
+      </g>
+      <rect class="nigiri__nori" data-passo="4" data-jeito="desce" x="104" y="34" width="30" height="104" rx="4" transform="rotate(4 119 86)" />
+    </svg>
+    <p class="loader__passo" aria-live="polite"><span>Lavando o arroz…</span><span>Ralando o wasabi…</span><span>Cortando o salmão…</span><span>Itadakimasu!</span></p>
+  </div>
+  <svg class="loader__onda" viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0 0h1440v40c-120 50-240 70-360 50S840 20 720 40 480 110 360 100 120 30 0 60z" /></svg>
+</div>
+
+  <header class="nav">
+  <a class="nav__logo" href="#topo" aria-label="Kanoa Sushi, início">KANOA<span lang="ja">寿司</span></a>
+  <nav class="nav__links" aria-label="Seções">
+    <a href="#cardapio" style="--r: -4deg">Cardápio</a>
+    <a href="#tour" style="--r: 3deg">Tour 360°</a>
+    <a href="#visitar" style="--r: -2deg">Visitar</a>
+  </nav>
+  <a class="botao botao--tinta nav__cta" style="--r: -3deg" href="https://wa.me/5544988227997?text=Ol%C3%A1%2C%20Kanoa!%20Vim%20pelo%20site." target="_blank" rel="noopener">Fale conosco</a>
+</header>
+
+  <main>
+    <section class="hero" id="topo">
+  <canvas class="petalas" data-camada="fundo" aria-hidden="true"></canvas>
+  <div class="moldura" aria-hidden="true">
+    <span class="moldura__rotulo moldura__rotulo--a">01 — 06</span>
+    <span class="moldura__rotulo moldura__rotulo--b" lang="ja">寿司 · すし · 寿司</span>
+    <span class="moldura__rotulo moldura__rotulo--c">Sushi &amp; Temakeria</span>
+    <span class="moldura__rotulo moldura__rotulo--d">Maringá · Paraná</span>
+  </div>
+  <h1 class="hero__palavra" aria-label="Kanoa" data-fit="0.95"><span>K</span><span>A</span><span>N</span><span>O</span><span>A</span></h1>
+  <canvas class="petalas" data-camada="meio" aria-hidden="true"></canvas>
+  <img class="hero__barca" src="./img-barca.webp" alt="Barca de sushi com nigiris, sashimi de salmão e uramakis" width="1491" height="596" />
+  <img class="hero__solto hero__hashi" data-arrasta src="./img-hashi.webp" alt="" width="800" height="800" draggable="false" />
+  <img class="hero__solto hero__hashi2" data-arrasta src="./img-hashi.webp" alt="" width="800" height="800" draggable="false" />
+  <img class="hero__solto hero__pratinho" src="./img-pratinho.webp" alt="" width="800" height="800" />
+  <img class="hero__solto hero__shoyu" src="./img-shoyu.webp" alt="" width="800" height="800" />
+  <canvas class="petalas" data-camada="frente" aria-hidden="true"></canvas>
+  <p class="hero__etiqueta">Buffet frio e quente</p>
+  <svg class="selo" viewBox="0 0 200 200" aria-hidden="true">
+    <circle cx="100" cy="100" r="98" />
+    <defs><path id="selo-volta" d="M100 100m-74 0a74 74 0 1 1 148 0a74 74 0 1 1-148 0" /></defs>
+    <text><textPath href="#selo-volta" textLength="458" lengthAdjust="spacing">ALMOÇO E JANTAR • BRINQUEDOTECA KIDS •</textPath></text>
+    <text class="selo__meio" x="100" y="114" text-anchor="middle" lang="ja">すし</text>
+  </svg>
+  <p class="hero__frase">Sushi, temaki e cozinha quente no buffet do almoço e do jantar, com brinquedoteca para as crianças.</p>
+  <div class="hero__pedido">
+    <p class="hero__hoje"><span class="ponto"></span>Almoço todo dia a partir das 11h30</p>
+    <a class="botao botao--papel" href="#cardapio">Ver o cardápio</a>
+  </div>
+</section>
+
+    <!-- Faixas que correm (src/motion/faixas.js): os itens ficam aqui, uma vez só; o JS repete o bastante para emendar.
+     A faixa de volta usa os mesmos itens, na ordem inversa. --antes: a cor da seção de cima (aqui, o hero). -->
+<div class="faixas" aria-label="Pratos da casa" style="--antes: var(--cor-hero)">
+  <div class="faixa faixa--tinta">
+    <div class="faixa__trilho" data-itens>
+      <span class="faixa__item">Niguiri<img src="./img-mini-nigiri.webp" alt="" width="200" height="200"></span>
+      <span class="faixa__item">Temaki<img src="./img-mini-temaki.webp" alt="" width="200" height="200"></span>
+      <span class="faixa__item">Uramaki<img src="./img-mini-uramaki.webp" alt="" width="200" height="200"></span>
+      <span class="faixa__item">Sashimi<img src="./img-mini-combinado.webp" alt="" width="200" height="200"></span>
+      <span class="faixa__item">Hot filadélfia<img src="./img-mini-hotroll.webp" alt="" width="200" height="200"></span>
+      <span class="faixa__item">Yakisoba<span class="faixa__bola"></span></span>
+      <span class="faixa__item">Joe<img src="./img-mini-combinado.webp" alt="" width="200" height="200"></span>
+      <span class="faixa__item">Sunomono<span class="faixa__bola"></span></span>
+    </div>
+  </div>
+  <div class="faixa faixa--papel"><div class="faixa__trilho faixa__trilho--volta" data-volta></div></div>
+</div>
+
+    <!-- O dia em horários (src/motion/dia.js): uma <article class="hora"> por horário.
+     data-cor e data-texto: o fundo e o texto da hora; data-num e data-num-sombra: a cor do número gigante e da sombra. -->
+<section class="dia" id="dia" aria-label="O dia no Kanoa">
+  <div class="dia__palco">
+    <article class="hora" data-cor="fria" data-texto="papel" data-num="papel" data-rotulo="11h30">
+      <h2 class="hora__num">11h<small>30</small></h2>
+      <h3 class="hora__titulo">O buffet abre</h3>
+      <p class="hora__texto">Almoço todos os dias, das 11h30 às 14h. Sushi, sashimi e temaki do lado frio, pratos quentes do outro.</p>
+      <div class="hora__fotos">
+        <img src="./img-dia-buffet.webp" alt="Buffet do Kanoa com as cubas de inox na parede vermelha" width="640" height="800" loading="lazy" />
+        <img src="./img-dia-recepcao.webp" alt="Recepção do Kanoa com o quadro do Buda e o caixa" width="640" height="800" loading="lazy" />
+      </div>
+    </article>
+    <article class="hora" data-cor="papel" data-texto="tinta" data-num="hero" data-rotulo="18h">
+      <h2 class="hora__num">18h</h2>
+      <h3 class="hora__titulo">O jantar começa</h3>
+      <p class="hora__texto">De segunda a sexta, o jantar vai das 18h às 22h. No sábado, das 19h às 22h.</p>
+      <div class="hora__fotos">
+        <img src="./img-dia-salao.webp" alt="O salão comprido do Kanoa, das mesas da janela até o buffet" width="640" height="800" loading="lazy" />
+        <img src="./img-dia-mesas.webp" alt="Mesas de madeira perto das janelas" width="640" height="800" loading="lazy" />
+      </div>
+    </article>
+    <article class="hora" data-cor="tinta" data-texto="papel" data-num="quente" data-num-sombra="hero" data-rotulo="22h">
+      <h2 class="hora__num">22h</h2>
+      <h3 class="hora__titulo">Até amanhã</h3>
+      <p class="hora__texto">A casa fecha às 22h e volta no almoço seguinte. Domingo, só almoço.</p>
+      <div class="hora__fotos">
+        <img src="./img-dia-fachada.webp" alt="Fachada do Kanoa Sushi &amp; Temakeria na esquina" width="640" height="800" loading="lazy" />
+        <img src="./img-dia-avenida.webp" alt="O Kanoa visto do outro lado da avenida" width="640" height="800" loading="lazy" />
+      </div>
+    </article>
+    <nav class="dia__horas" aria-label="Horários"></nav>
+  </div>
+</section>
+
+    <section class="panorama" aria-label="O salão do Kanoa">
+  <div class="panorama__palco">
+    <div class="panorama__trilho">
+      <img class="panorama__foto" src="./img-panorama.webp" alt="Salão do Kanoa: mesas de madeira junto às janelas e o buffet na parede vermelha" width="2576" height="859" loading="lazy" />
+      <p class="panorama__nota" style="--x: 20%; --y: 26%">As mesas<br /><b>Madeira, luz do dia</b></p>
+      <p class="panorama__nota" style="--x: 50%; --y: 20%">As janelas<br /><b>De frente para a avenida</b></p>
+      <p class="panorama__nota" style="--x: 83%; --y: 24%">O buffet<br /><b>Frio e quente</b></p>
+    </div>
+    <div class="panorama__titulo">
+      <p class="panorama__kata" lang="ja">いただきます</p>
+      <h2 data-fit="0.9">Itadakimasu!</h2>
+      <p class="panorama__legenda">É o "bom apetite" japonês. Aqui, a gente diz no buffet, na mesa e na brinquedoteca.</p>
+    </div>
+  </div>
+</section>
+
+    <section class="cardapio" id="cardapio" aria-label="Cardápio">
+  <div class="cardapio__palco">
+    <h2 class="cardapio__palavra" data-fit="0.9">SUSHI</h2>
+    <div class="cardapio__fila">
+      <article class="prato prato--papel">
+        <span class="prato__selo">Da casa</span>
+        <img src="./img-prato-combinado.webp" alt="Combinado de sushis" width="800" height="800" loading="lazy" />
+        <div class="prato__topo"><h3>Combinado</h3></div>
+        <p class="prato__desc">Niguiri, sashimi, uramaki e joe de salmão no mesmo prato.</p>
+      </article>
+      <article class="prato prato--quente">
+        <img src="./img-prato-nigiri.webp" alt="Niguiris de salmão" width="800" height="800" loading="lazy" />
+        <div class="prato__topo"><h3>Niguiri</h3></div>
+        <p class="prato__desc">Arroz temperado e uma lâmina de salmão por cima.</p>
+      </article>
+      <article class="prato prato--acento">
+        <img src="./img-prato-temaki.webp" alt="Temaki de salmão" width="800" height="800" loading="lazy" />
+        <div class="prato__topo"><h3>Temaki</h3></div>
+        <p class="prato__desc">Cone de alga crocante com arroz, salmão e cream cheese.</p>
+      </article>
+      <article class="prato prato--papel">
+        <img src="./img-prato-uramaki.webp" alt="Uramaki filadélfia" width="800" height="800" loading="lazy" />
+        <div class="prato__topo"><h3>Filadélfia</h3></div>
+        <p class="prato__desc">Salmão e cream cheese, com o arroz e o gergelim por fora.</p>
+      </article>
+      <article class="prato prato--hero">
+        <img src="./img-prato-hotroll.webp" alt="Hot filadélfia com molho tarê" width="800" height="800" loading="lazy" />
+        <div class="prato__topo"><h3>Hot filadélfia</h3></div>
+        <p class="prato__desc">Empanado e frito, com molho tarê e cebolinha.</p>
+      </article>
+    </div>
+    <a class="botao botao--acento cardapio__botao" href="https://wa.me/5544988227997?text=Ol%C3%A1%2C%20Kanoa!%20Vim%20pelo%20site." target="_blank" rel="noopener">Perguntar no WhatsApp</a>
+  </div>
+</section>
+
+    <section class="mural" aria-label="Por dentro do Kanoa">
+  <div class="mural__topo">
+    <h2>Por dentro do Kanoa</h2>
+    <p>Um pouco da casa antes de você chegar. <span class="mural__dica">Arraste para mexer.</span></p>
+  </div>
+  <div class="mural__campo">
+    <figure class="polaroid" style="--x: 3%; --y: 4%; --r: -7deg">
+      <img src="./img-mural-kids.webp" alt="Mural colorido da brinquedoteca Kanoa Kids" width="640" height="640" loading="lazy" />
+      <figcaption>A brinquedoteca Kanoa Kids.<cite>Espaço das crianças</cite></figcaption>
+    </figure>
+    <figure class="polaroid" style="--x: 27%; --y: 16%; --r: 5deg">
+      <img src="./img-mural-buffet.webp" alt="O buffet com as cubas de inox" width="640" height="640" loading="lazy" />
+      <figcaption>O buffet, frio e quente.<cite>Almoço e jantar</cite></figcaption>
+    </figure>
+    <figure class="polaroid" style="--x: 51%; --y: 2%; --r: -3deg">
+      <img src="./img-mural-fachada.webp" alt="A esquina do Kanoa vista da avenida" width="640" height="640" loading="lazy" />
+      <figcaption>A esquina da casa.<cite>Av. João Paulino, 890</cite></figcaption>
+    </figure>
+    <figure class="polaroid" style="--x: 68%; --y: 14%; --r: 6deg">
+      <img src="./img-mural-salao.webp" alt="Mesas de madeira no salão" width="640" height="640" loading="lazy" />
+      <figcaption>Mesa para a família toda.<cite>O salão</cite></figcaption>
+    </figure>
+    <figure class="polaroid" style="--x: 14%; --y: 58%; --r: 4deg">
+      <img src="./img-mural-janela.webp" alt="Mesa grande junto às janelas" width="640" height="640" loading="lazy" />
+      <figcaption>Luz do dia nas mesas.<cite>As janelas</cite></figcaption>
+    </figure>
+    <figure class="polaroid" style="--x: 54%; --y: 58%; --r: -5deg">
+      <img src="./img-mural-brinquedos.webp" alt="Parede da brinquedoteca com o arco-íris" width="640" height="640" loading="lazy" />
+      <figcaption>Enquanto a família almoça.<cite>Kanoa Kids</cite></figcaption>
+    </figure>
+  </div>
+</section>
+
+    <!-- Tour virtual 360° (src/motion/tour.js): as cenas ficam aqui, uma <li> por ambiente, com a foto 360° (data-src),
+     a miniatura, a direção inicial (data-yaw, data-pitch) e as setas (data-pontos: "destino,yaw,pitch,Rótulo;…").
+     A primeira cena abre em modo mundo (pequeno planeta) quando o tour aparece na tela. -->
+<section class="tour" id="tour" aria-label="Tour virtual 360° do Kanoa">
+  <div class="tour__topo">
+    <p class="tour__kata">Tour virtual 360°</p>
+    <h2 class="tour__titulo">Entre no Kanoa</h2>
+    <p class="tour__texto">Da calçada até a brinquedoteca. Arraste para olhar em volta e toque nas setas para andar.</p>
+  </div>
+  <div class="tour__janela" data-lenis-prevent tabindex="0" role="region" aria-label="Tour virtual 360°">
+    <canvas class="tour__canvas"></canvas>
+    <div class="tour__pontos"></div>
+    <div class="tour__barra">
+      <div class="tour__nome"><small>Você está em</small><strong></strong></div>
+      <div class="tour__ferramentas">
+        <button type="button" data-acao="mundo" aria-label="Modo mundo" title="Modo mundo"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg></button>
+        <button type="button" data-acao="girar" aria-label="Girar sozinho" aria-pressed="true" title="Girar sozinho"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 12a8 8 0 1 1-2.3-5.6M20 4v4h-4"/></svg></button>
+        <button type="button" data-acao="tela" aria-label="Tela cheia" title="Tela cheia"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+      </div>
+    </div>
+    <button type="button" class="tour__entrar botao botao--acento">Entrar no tour</button>
+    <p class="tour__carregando">Carregando o tour…</p>
+  </div>
+  <ul class="tour__cenas" aria-label="Ambientes">
+    <li data-id="fachada" data-src="tour-fachada.jpg" data-yaw="2" data-pitch="2" data-pontos="entrada,1,-14,Entrar no Kanoa;avenida,97,-16,Vista da avenida"><button type="button"><img src="./thumb-fachada.jpg" alt="" width="320" height="180" loading="lazy"><span>Fachada</span></button></li>
+    <li data-id="avenida" data-src="tour-avenida.jpg" data-yaw="18" data-pitch="2" data-pontos="fachada,22,-9,Ir até a fachada"><button type="button"><img src="./thumb-avenida.jpg" alt="" width="320" height="180" loading="lazy"><span>Avenida</span></button></li>
+    <li data-id="entrada" data-src="tour-entrada.jpg" data-yaw="0" data-pitch="-2" data-pontos="salao,92,-20,Salão;kids,-37,-12,Brinquedoteca;fachada,-152,-14,Sair para a rua"><button type="button"><img src="./thumb-entrada.jpg" alt="" width="320" height="180" loading="lazy"><span>Recepção e buffet</span></button></li>
+    <li data-id="salao" data-src="tour-salao.jpg" data-yaw="-40" data-pitch="-4" data-pontos="salao2,118,-16,Fundo do salão;entrada,-150,-12,Recepção e buffet"><button type="button"><img src="./thumb-salao.jpg" alt="" width="320" height="180" loading="lazy"><span>Salão</span></button></li>
+    <li data-id="salao2" data-src="tour-salao2.jpg" data-yaw="0" data-pitch="-4" data-pontos="salao,-12,-20,Voltar ao salão"><button type="button"><img src="./thumb-salao2.jpg" alt="" width="320" height="180" loading="lazy"><span>Mesas da janela</span></button></li>
+    <li data-id="kids" data-src="tour-kids.jpg" data-yaw="-45" data-pitch="0" data-pontos="entrada,91,-24,Voltar à recepção"><button type="button"><img src="./thumb-kids.jpg" alt="" width="320" height="180" loading="lazy"><span>Kanoa Kids</span></button></li>
+  </ul>
+</section>
+
+    <!-- Faixa de avisos antes do fecho. --antes: a cor da seção de cima (aqui, o tour, em --cor-fria). -->
+<div class="faixas faixas--uma" aria-hidden="true" style="--antes: var(--cor-fria)">
+  <div class="faixa faixa--papel faixa--avisos">
+    <div class="faixa__trilho" data-itens>
+      <span class="faixa__item">Buffet frio e quente<span class="faixa__bola"></span></span>
+      <span class="faixa__item">Almoço todo dia<span class="faixa__bola"></span></span>
+      <span class="faixa__item">Brinquedoteca Kanoa Kids<span class="faixa__bola"></span></span>
+      <span class="faixa__item">Marque @kanoa_sushi_<span class="faixa__bola"></span></span>
+    </div>
+  </div>
+</div>
+
+    <footer class="fecho" id="visitar">
+  <img class="fecho__combinado" src="./img-combinado.webp" alt="Combinado de sushis na pedra" width="1600" height="1067" loading="lazy" />
+  <div class="comanda">
+    <div class="comanda__papel">
+      <div class="comanda__topo"><p class="comanda__marca">KANOA</p><p class="comanda__mesa">MESA 07</p></div>
+      <p class="comanda__end">Av. João Paulino Vieira Filho, 890 · Maringá · PR</p>
+      <ul class="comanda__horas">
+        <li><span>Seg a sex</span><i></i><span>11h30–14h · 18h–22h</span></li>
+        <li><span>Sábado</span><i></i><span>11h30–14h · 19h–22h</span></li>
+        <li><span>Domingo</span><i></i><span>11h30–14h</span></li>
+      </ul>
+      <div class="comanda__links">
+        <a href="#cardapio">Cardápio</a><a href="#tour">Tour 360°</a><a href="https://www.google.com/maps/place/Kanoa+sushi+e+Temakeria/@-23.4169716,-51.9438795,17z" target="_blank" rel="noopener">Como chegar</a><a href="https://www.instagram.com/kanoa_sushi_/" target="_blank" rel="noopener">Instagram</a>
+        <a class="comanda__tel" href="tel:+554433548078">(44) 3354-8078</a>
+      </div>
+      <a class="botao botao--tinta comanda__botao" href="https://wa.me/5544988227997?text=Ol%C3%A1%2C%20Kanoa!%20Vim%20pelo%20site." target="_blank" rel="noopener">WhatsApp (44) 98822-7997</a>
+      <p class="comanda__obrigado">Arigatô! Volte com fome.</p>
+      <p class="comanda__pe">© 2026 Kanoa Sushi · @kanoa_sushi_ · Site e tour 360° por <a href="https://infinityview360.com.br" target="_blank" rel="noopener">Infinity 360</a></p>
+    </div>
+  </div>
+  <p class="fecho__palavra" aria-hidden="true" data-fit="0.96">KANOA</p>
+</footer>
+
+  </main>
+  <!-- Selo que segue o cursor sobre as fotos (src/motion/fresco.js): marque com data-fresco o que deve acendê-lo. -->
+<p class="fresco" aria-hidden="true">Fresh!</p>
+
+</body>
 </html>
